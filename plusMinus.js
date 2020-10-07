@@ -20,7 +20,7 @@ function plusMinus(arr) {
     });
     console.log(plusCount / arr.length);
     console.log(minusCount / arr.length);
-    console.log(zeroCount);
+    console.log(zeroCount / arr.length);
     return;
 }
 
