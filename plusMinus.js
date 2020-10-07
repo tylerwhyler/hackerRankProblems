@@ -3,9 +3,9 @@
 // line with 6 places after the decimal.
 
 function plusMinus(arr) {
-    let minusCount;
-    let plusCount;
-    let zeroCount;
+    let minusCount = 0;
+    let plusCount = 0;
+    let zeroCount = 0;
 
     arr.forEach(i => {
         if (i < 0) {
@@ -20,8 +20,8 @@ function plusMinus(arr) {
     });
     console.log(plusCount / arr.length);
     console.log(minusCount / arr.length);
-    console.log(zeroCount / arr.length);
+    console.log(zeroCount);
     return;
 }
-//test
+
 plusMinus([1, 1, 0, -1, -1]);
