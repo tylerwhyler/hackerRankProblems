@@ -14,7 +14,7 @@ function plusMinus(arr) {
         if (i > 0) {
             plusCount++;
         }
-        if ((i = 0)) {
+        if (i === 0) {
             zeroCount++;
         }
     });
