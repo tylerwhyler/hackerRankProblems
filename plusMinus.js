@@ -23,5 +23,5 @@ function plusMinus(arr) {
     console.log(zeroCount / arr.length);
     return;
 }
-
+//test
 plusMinus([1, 1, 0, -1, -1]);
