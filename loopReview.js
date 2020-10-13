@@ -1,7 +1,7 @@
 function processData(input) {
     //Enter your code here
     let inputArr = input.split('\n');
-    inputArr.shift();
+    // inputArr.shift();
     let evenArr = '';
     let oddArr = '';
     for (let i = 0; i < inputArr.length; i++) {
@@ -14,6 +14,6 @@ function processData(input) {
     evenArr = '';
     oddArr = '';
     }
-} 
+}
 
 processData('tyler\nmynamehere')
