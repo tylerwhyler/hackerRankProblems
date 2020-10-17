@@ -1,4 +1,9 @@
 function main() {
+    //Goal is to find the highest value for any of the 16 possible 'hourglass' patterns
+    //within the 6x6 matrix. (0,0)(1,0)(2,0) //(points on planes using the topleft as origin)
+                        //        (1,1)
+                        //   (0,2)(1,2)(2,2) would be the upper left-most hourglass pattern
+
     let arr = [[0, -4, -6, 0, -7, -6], //sample input since not using stdin
               [-1, -2, -6, -8, -3, -1],
               [-8, -4, -2, -8, -8, -6],
