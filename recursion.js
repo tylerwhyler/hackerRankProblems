@@ -1,9 +1,9 @@
-function exponentiation(n) {
-    if (n <= 1) { //basecase
+function exponentiation(n, p) {
+    if (p <= 0) { //basecase
         return 1;
     } else {
-        return n ** exponentiation(n - 1);
+        return n * exponentiation(n, p - 1);
     }
 }
 
-console.log(exponentiation(4));
+console.log(exponentiation(4, 4));
