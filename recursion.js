@@ -1,7 +1,7 @@
 function exponentiation(n, p) {
-    if (p <= 0) { //basecase
+    if (p <= 0) { //base case
         return 1; //multiplicative identity
-    } else { //Recursive case
+    } else { //recursive case
         return n * exponentiation(n, p - 1); //this is the actual recursive part of the function
     }
 }
