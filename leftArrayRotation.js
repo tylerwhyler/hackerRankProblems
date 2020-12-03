@@ -6,4 +6,4 @@ function rotLeft(a, d) {
     return a.join(' ') + '\n'
 }
 
-console.log(rotLeft([1,2,3,4,5], 4)); //output should be 1 2 3 4 5
+console.log(rotLeft([1,2,3,4,5], 4)); //output should be 5 1 2 3 4
