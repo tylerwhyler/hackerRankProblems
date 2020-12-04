@@ -4,7 +4,7 @@ function minimumSwaps(sortedArr) {
     let counter = 0;
     function synthCreate(synthArr) {
       let newSynthArr = [];
-      sortedSynthArr = [...synthArr];
+      let sortedSynthArr = [...synthArr];
       sortedSynthArr.sort((a, b) => a - b);
       for (let x = 0; x < synthArr.length; x++) {
         if (synthArr[x] != sortedSynthArr[x]) {
