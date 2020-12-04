@@ -16,7 +16,9 @@ function minimumSwaps(sortedArr) {
 
     while (arr.join('') != sortedArr.join('')) {
       for (let y = 0; y < arr.length; y++) {
+        if (arr.join('') === sortedArr.join('')) break;
         for (let z = 0; z < arr.length; z++) {
+          if (arr.join('') === sortedArr.join('')) break;
           let arrCopy = [...arr];
           let arrCopyCopy = [...arr];
           arrCopy.splice(y, 1, arr[z]);
@@ -28,6 +30,7 @@ function minimumSwaps(sortedArr) {
           }
         }
         for (let z = 0; z < arr.length; z++) {
+          if (arr.join('') === sortedArr.join('')) break;
           let arrCopy = [...arr];
           let arrCopyCopy = [...arr];
           arrCopy.splice(y, 1, arr[z]);
@@ -47,4 +50,4 @@ function minimumSwaps(sortedArr) {
     return counter;
 }
 
-console.log(minimumSwaps([2, 1, 4, 3, 5]))
+console.log(minimumSwaps([1, 3, 5, 2, 4, 6, 7]))
