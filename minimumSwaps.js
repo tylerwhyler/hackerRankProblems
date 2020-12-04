@@ -16,17 +16,27 @@ function minimumSwaps(sortedArr) {
 
     for (let y = 0; y < arr.length; y++) {
       for (let z = 0; z < arr.length; z++) {
-        if (synthCreate(arr.splice(y, 1, arr[z])).length < synthCreate(arr).length - 1) {
+        let arrCopy = [...arr];
+        let arrCopyCopy = [...arr];
+        arrCopy.splice(y, 1, arr[z]);
+        if (synthCreate(arrCopy).length < synthCreate(arr).length - 1) {
+          //console.log(arr, '|', y, z)
+          console.log(arrCopyCopy[y], '|ss', y, z)
+          arr.splice(y, 1, arr[z])
+          arr.splice(z, 1, arrCopyCopy[y])
+          counter++;
+        }
+      }
+      for (let z = 0; z < arr.length; z++) {
+        let arrCopy = [...arr];
+        let arrCopyCopy = [...arr];
+        arrCopy.splice(y, 1, arr[z]);
+        if (synthCreate(arrCopy).length < synthCreate(arr).length) {
           console.log(arr, '|', y, z)
           arr.splice(y, 1, arr[z])
-          console.log(arr, '|', y, z)
+          arr.splice(z, 1, arrCopyCopy[y])
           counter++;
-        } else if (synthCreate(arr.splice(y, 1, arr[z])).length < synthCreate(arr).length) {
-          console.log(arr, '|', y, z)
-          arr.splice(y, 1, arr[z])
-          console.log(arr, '|', y, z)
-          counter++;
-        } 
+        }
       }
     }
 
@@ -34,4 +44,4 @@ function minimumSwaps(sortedArr) {
     return counter;
 }
 
-console.log(minimumSwaps([2, 3, 4, 1, 5]))
+console.log(minimumSwaps([2, 1, 4, 3, 5]))
