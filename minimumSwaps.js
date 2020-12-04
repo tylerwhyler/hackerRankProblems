@@ -14,29 +14,32 @@ function minimumSwaps(sortedArr) {
       return newSynthArr;
     }
 
-    for (let y = 0; y < arr.length; y++) {
-      for (let z = 0; z < arr.length; z++) {
-        let arrCopy = [...arr];
-        let arrCopyCopy = [...arr];
-        arrCopy.splice(y, 1, arr[z]);
-        if (synthCreate(arrCopy).length < synthCreate(arr).length - 1) {
-          //console.log(arr, '|', y, z)
-          console.log(arrCopyCopy[y], '|ss', y, z)
-          arr.splice(y, 1, arr[z])
-          arr.splice(z, 1, arrCopyCopy[y])
-          counter++;
+    while (arr.join('') != sortedArr.join('')) {
+      for (let y = 0; y < arr.length; y++) {
+        for (let z = 0; z < arr.length; z++) {
+          let arrCopy = [...arr];
+          let arrCopyCopy = [...arr];
+          arrCopy.splice(y, 1, arr[z]);
+          arrCopy.splice(z, 1, arrCopyCopy[y]);
+          if (synthCreate(arrCopy).length < synthCreate(arr).length - 1) {
+            arr.splice(y, 1, arr[z])
+            arr.splice(z, 1, arrCopyCopy[y])
+            counter++;
+          }
         }
-      }
-      for (let z = 0; z < arr.length; z++) {
-        let arrCopy = [...arr];
-        let arrCopyCopy = [...arr];
-        arrCopy.splice(y, 1, arr[z]);
-        if (synthCreate(arrCopy).length < synthCreate(arr).length) {
-          console.log(arr, '|', y, z)
-          arr.splice(y, 1, arr[z])
-          arr.splice(z, 1, arrCopyCopy[y])
-          counter++;
+        for (let z = 0; z < arr.length; z++) {
+          let arrCopy = [...arr];
+          let arrCopyCopy = [...arr];
+          arrCopy.splice(y, 1, arr[z]);
+          arrCopy.splice(z, 1, arrCopyCopy[y]);
+          if (synthCreate(arrCopy).length < synthCreate(arr).length) {
+            console.log(arr, '|', y, z)
+            arr.splice(y, 1, arr[z])
+            arr.splice(z, 1, arrCopyCopy[y])
+            counter++;
+          }
         }
+        console.log(arr, sortedArr)
       }
     }
 
