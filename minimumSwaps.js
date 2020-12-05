@@ -1,25 +1,24 @@
 function minimumSwaps(sortedArr) {
     let arr = [...sortedArr]; 
     sortedArr.sort((a, b) => a - b);
-    let counter = 0;
     let newcount = 0;
+    let counter = 0;
     function synthCreate(synthArr) {
-      let newSynthArr = [];
+      let incorrectNums = 0;
       let sortedSynthArr = [...synthArr];
       sortedSynthArr.sort((a, b) => a - b);
       for (let x = 0; x < synthArr.length; x++) {
-        newcount++;
+        newcount++
         console.log(newcount)
         if (synthArr[x] != sortedSynthArr[x]) {
-          newSynthArr.push(synthArr[x]);
+          incorrectNums++;
         }
       }
-      return newSynthArr;
+      return incorrectNums;
     }
 
     while (arr.join('') != sortedArr.join('')) {
       for (let y = 0; y < arr.length; y++) {
-        if (arr.join('') === sortedArr.join('')) break;
         for (let z = 0; z < arr.length; z++) {
           if (arr.join('') === sortedArr.join('')) break;
           let arrCopy = [...arr];
@@ -27,9 +26,9 @@ function minimumSwaps(sortedArr) {
           arrCopy.splice(y, 1, arr[z]);
           arrCopy.splice(z, 1, arrCopyCopy[y]);
           if (arr[z] === sortedArr[z] || arr[y] === sortedArr[y]) {
-            continue;
+             continue;
           }
-          if (synthCreate(arrCopy).length < synthCreate(arr).length - 1) {
+          if (synthCreate(arrCopy) < synthCreate(arr) - 1) {
             arr.splice(y, 1, arr[z])
             arr.splice(z, 1, arrCopyCopy[y])
             counter++;
@@ -45,7 +44,7 @@ function minimumSwaps(sortedArr) {
           if (arr[z] === sortedArr[z] || arr[y] === sortedArr[y]) {
             continue;
           }
-          if (synthCreate(arrCopy).length < synthCreate(arr).length) {
+          if (synthCreate(arrCopy) < synthCreate(arr)) {
             console.log(arr, '|', y, z)
             arr.splice(y, 1, arr[z])
             arr.splice(z, 1, arrCopyCopy[y])
