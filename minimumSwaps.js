@@ -26,7 +26,7 @@ function minimumSwaps(sortedArr) {
           let arrCopyCopy = [...arr];
           arrCopy.splice(y, 1, arr[z]);
           arrCopy.splice(z, 1, arrCopyCopy[y]);
-          if (arr[y] === sortedArr[y]) {
+          if (arr[z] === sortedArr[z] || arr[y] === sortedArr[y]) {
             continue;
           }
           if (synthCreate(arrCopy).length < synthCreate(arr).length - 1) {
@@ -42,7 +42,7 @@ function minimumSwaps(sortedArr) {
           let arrCopyCopy = [...arr];
           arrCopy.splice(y, 1, arr[z]);
           arrCopy.splice(z, 1, arrCopyCopy[y]);
-          if (arr[z] === sortedArr[z]) {
+          if (arr[z] === sortedArr[z] || arr[y] === sortedArr[y]) {
             continue;
           }
           if (synthCreate(arrCopy).length < synthCreate(arr).length) {
