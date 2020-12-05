@@ -2,11 +2,14 @@ function minimumSwaps(sortedArr) {
     let arr = [...sortedArr]; 
     sortedArr.sort((a, b) => a - b);
     let counter = 0;
+    let newcount = 0;
     function synthCreate(synthArr) {
       let newSynthArr = [];
       let sortedSynthArr = [...synthArr];
       sortedSynthArr.sort((a, b) => a - b);
       for (let x = 0; x < synthArr.length; x++) {
+        newcount++;
+        console.log(newcount)
         if (synthArr[x] != sortedSynthArr[x]) {
           newSynthArr.push(synthArr[x]);
         }
