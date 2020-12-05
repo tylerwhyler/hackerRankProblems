@@ -1,5 +1,4 @@
 function minimumSwaps(sortedArr) {
-    //DID NOT PASS ALL HACKERRANK TESTS YET
     let arr = [...sortedArr]; 
     sortedArr.sort((a, b) => a - b);
     let counter = 0;
@@ -24,10 +23,14 @@ function minimumSwaps(sortedArr) {
           let arrCopyCopy = [...arr];
           arrCopy.splice(y, 1, arr[z]);
           arrCopy.splice(z, 1, arrCopyCopy[y]);
+          if (arr[y] === sortedArr[y]) {
+            continue;
+          }
           if (synthCreate(arrCopy).length < synthCreate(arr).length - 1) {
             arr.splice(y, 1, arr[z])
             arr.splice(z, 1, arrCopyCopy[y])
             counter++;
+            break;
           }
         }
         for (let z = 0; z < arr.length; z++) {
@@ -36,6 +39,9 @@ function minimumSwaps(sortedArr) {
           let arrCopyCopy = [...arr];
           arrCopy.splice(y, 1, arr[z]);
           arrCopy.splice(z, 1, arrCopyCopy[y]);
+          if (arr[z] === sortedArr[z]) {
+            continue;
+          }
           if (synthCreate(arrCopy).length < synthCreate(arr).length) {
             console.log(arr, '|', y, z)
             arr.splice(y, 1, arr[z])
@@ -51,4 +57,4 @@ function minimumSwaps(sortedArr) {
     return counter;
 }
 
-console.log(minimumSwaps([1, 3, 5, 2, 4, 6, 7]))
+console.log(minimumSwaps([1, 3, 5, 2, 4, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8]))
