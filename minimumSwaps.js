@@ -1,4 +1,5 @@
 function minimumSwaps(sortedArr) {
+    //DID NOT PASS ALL HACKERRANK TESTS YET
     let arr = [...sortedArr]; 
     sortedArr.sort((a, b) => a - b);
     let counter = 0;
