@@ -1,4 +1,5 @@
 function minimumSwaps(sortedArr) {
+    //still isn't optimized enough to pass all hackerrank tests
     let arr = [...sortedArr]; 
     sortedArr.sort((a, b) => a - b);
     let newcount = 0;
