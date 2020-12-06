@@ -1,29 +1,20 @@
 function minimumSwaps(sortedArr) {
-    //still isn't optimized enough to pass all hackerrank tests
     let arr = [...sortedArr]; 
     sortedArr.sort((a, b) => a - b);
-    let newcount = 0;
     let counter = 0;
-    function synthCreate(synthArr, originalArr, biFlip) {
+    function synthCreate(synthArr, originalArr, sortedOriginalArr, biFlip) {
       let incorrectNums = 0;
       let incorrectOriginalArrNums = 0;
       let sortedSynthArr = [...synthArr];
       sortedSynthArr.sort((a, b) => a - b);
-      let sortedOriginalArr = [...originalArr];
-      sortedOriginalArr.sort((a, b) => a - b);
       for (let x = 0; x < synthArr.length; x++) {
-        newcount++
-        console.log(newcount)
         if (synthArr[x] != sortedSynthArr[x]) {
-          console.log(newcount, "%%%")
           incorrectNums++;
         }
         if (originalArr[x] != sortedOriginalArr[x]) {
-          console.log(newcount, "%%%")
           incorrectOriginalArrNums++;
         }
         if (incorrectNums < incorrectOriginalArrNums - 1) {
-            console.log(newcount, "%%%$$$")
           return true;
         }
         if (incorrectNums < incorrectOriginalArrNums && biFlip) {
@@ -45,7 +36,7 @@ function minimumSwaps(sortedArr) {
           if (arr[z] === sortedArr[z] || arr[y] === sortedArr[y]) {
              continue;
           }
-          if (synthCreate(arrCopy, arr, false)) {
+          if (synthCreate(arrCopy, arr, sortedArr, false)) {
             arr.splice(y, 1, arr[z])
             arr.splice(z, 1, arrCopyCopy[y])
             counter++;
@@ -61,13 +52,12 @@ function minimumSwaps(sortedArr) {
           if (arr[z] === sortedArr[z] || arr[y] === sortedArr[y]) {
             continue;
           }
-          if (synthCreate(arrCopy, arr, true)) {
+          if (synthCreate(arrCopy, arr, sortedArr, true)) {
             arr.splice(y, 1, arr[z])
             arr.splice(z, 1, arrCopyCopy[y])
             counter++;
           }
         }
-        console.log(arr, sortedArr)
       }
     }
 
