@@ -1,15 +1,16 @@
 function minimumSwaps(sortedArr) {
-    let arr = [...sortedArr]; 
-    sortedArr.sort((a, b) => a - b);
+    //I don't believe I can solve this without knowledge of data structures and algorithms
     let counter = 0;
     let iterCount = 0;
+    let arr = [...sortedArr]; 
+    sortedArr.sort((a, b) => a - b);
     function synthCreate(synthArr, originalArr, sortedOriginalArr, biFlip) {
       let incorrectNums = 0;
       let incorrectOriginalArrNums = 0;
-      let sortedSynthArr = [...synthArr];
-      sortedSynthArr.sort((a, b) => a - b);
       for (let x = 0; x < synthArr.length; x++) {
-        if (synthArr[x] != sortedSynthArr[x]) {
+        iterCount++;
+        console.log(iterCount)
+        if (synthArr[x] != sortedOriginalArr[x]) {
           incorrectNums++;
         }
         if (originalArr[x] != sortedOriginalArr[x]) {
@@ -24,16 +25,7 @@ function minimumSwaps(sortedArr) {
       }
     return false;
     }
-
-    let wrongNumsCount = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] != sortedArr[i]) {
-            wrongNumsCount++;
-        }
-        console.log(wrongNumsCount)
-    }
-    if (wrongNumsCount > 100) return ((wrongNumsCount/2) + 1);
-
+    
     while (arr.join('') != sortedArr.join('')) {
       for (let y = 0; y < arr.length; y++) {
         if (arr.join('') === sortedArr.join('')) break;
@@ -75,4 +67,4 @@ function minimumSwaps(sortedArr) {
     return counter;
 }
 
-console.log(minimumSwaps([1, 3, 5, 2, 4, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16]))
+console.log(minimumSwaps([1, 3, 5, 2, 4, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8]))
