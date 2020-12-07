@@ -2,25 +2,20 @@ function minimumSwaps(sortedArr) {
     let counter = 0;
     let arr = [...sortedArr];
     sortedArr.sort((a, b) => a - b);
-    while (arr.join('') != sortedArr.join('')) {
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] != sortedArr[i]) {
-                let tempSwapNum = arr[i];
-                let tempSwap = sortedArr.indexOf(tempSwapNum);
-                if (sortedArr[i] === arr[tempSwap]) {
-                    counter++;
-                    arr.splice(i, 1, sortedArr[i]);
-                    arr.splice(tempSwap, 1, tempSwapNum);
-                    continue;
-                }
-                if (arr.join('') === sortedArr.join('')) break;
+    for (let i = 0; i < arr.length; i++) {
+        let sortedI = sortedArr[i];
+        let arrI = arr[i];
+        if (arrI != sortedI) {
+            let tempSwap = sortedArr.indexOf(arrI);
+            if (sortedI === arr[tempSwap]) {
                 counter++;
-                arr.splice(arr.indexOf(sortedArr[i]), 1, arr[i]);
-                arr.splice(i, 1, sortedArr[i]);
+                [arr[tempSwap], arr[i]] = [arrI, sortedI]
+                continue;
             }
+            counter++;
+            [arr[arr.indexOf(sortedI)], arr[i]] = [arrI, sortedI]
         }
     }
-
     return counter;
 }
 
