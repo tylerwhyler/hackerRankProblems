@@ -6,12 +6,6 @@ function minimumSwaps(sortedArr) {
         let sortedI = sortedArr[i];
         let arrI = arr[i];
         if (arrI != sortedI) {
-            let tempSwap = sortedArr.indexOf(arrI);
-            if (sortedI === arr[tempSwap]) {
-                counter++;
-                [arr[tempSwap], arr[i]] = [arrI, sortedI]
-                continue;
-            }
             counter++;
             [arr[arr.indexOf(sortedI)], arr[i]] = [arrI, sortedI]
         }
