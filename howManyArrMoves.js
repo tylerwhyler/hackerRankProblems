@@ -1,18 +1,24 @@
-//medium hackerrank problem "New Year Chaos"
+//medium hackerrank problem, "New Years Chaos"
+
 function minimumBribes(sortedAr) {
     let ar = [...sortedAr];
     sortedAr.sort((a, b) => a - b);
+    let sortedArCopy = [...sortedAr]
     let bribeCount = 0;
+    //console.log(sortedArCopy);
     for (let x = 0; x < ar.length; x++) {
-        console.log(ar.indexOf(ar[x]), sortedAr.indexOf(ar[x]));
         if (ar.indexOf(ar[x]) < sortedAr.indexOf(ar[x]) - 2) {
-            console.log('Too Chaotic');
-            break;
+            console.log('Too chaotic');
+            return;
+        }
+        if (ar[x] != sortedArCopy[x]) {
+            console.log("before", `${sortedArCopy}`);
+            sortedArCopy.splice(x, 0, ar[x]);
+            bribeCount += Math.abs(x - sortedArCopy.lastIndexOf(ar[x]) + 1)
+            sortedArCopy.splice(sortedArCopy.lastIndexOf(ar[x]), 1)
+            console.log("after ", `${sortedArCopy}`, "\n");
         }
     }
     console.log(bribeCount);
 }
-
-minimumBribes([5, 1, 2, 3, 7, 8, 6, 4])
-           // [1, 2, 3, 4, 5, 6, 7, 8]
-minimumBribes([1, 2, 5, 3, 7, 8, 6, 4])
+minimumBribes([2, 1, 5, 6, 3, 4, 9, 8, 11, 7, 10, 14, 13, 12, 17, 16, 15]) //should return 16
