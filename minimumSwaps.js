@@ -1,10 +1,9 @@
 function minimumSwaps(arr) {
     let counter = 0;
     for (let i = 0; i < arr.length; i++) {
-        let arrI = arr[i];
-        if (arrI != i + 1) {
+        if (arr[i] != i + 1) {
             counter++;
-            arr[arr.lastIndexOf(i+1)] = arrI
+            arr[arr.lastIndexOf(i+1)] = arr[i]
         }
     }
     return counter;
