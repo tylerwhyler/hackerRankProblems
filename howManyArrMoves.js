@@ -7,8 +7,7 @@ function minimumBribes(sortedAr) {
     let bribeCount = 0;
     for (let x = 0; x < ar.length; x++) {
         if (ar.indexOf(ar[x]) < sortedAr.indexOf(ar[x]) - 2) {
-            console.log('Too chaotic');
-            return;
+            return console.log('Too chaotic');
         }
         sortedArCopy.splice(x, 0, ar[x]);
         bribeCount += Math.abs(x - sortedArCopy.lastIndexOf(ar[x]) + 1)
